@@ -1,0 +1,49 @@
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+ setlocale(0, "");
+ cout << "Задание №1:" << endl << endl;
+ cout << "int: " << sizeof(int) << endl <<
+  "short int: " << sizeof(short int) << endl <<
+  "long int: " << sizeof(long int) << endl <<
+  "float: " << sizeof(float) << endl <<
+  "double: " << sizeof(double) << endl <<
+  "long double: " << sizeof(long double) << endl <<
+  "char: " << sizeof(char) << endl <<
+  "bool: " << sizeof(bool) << endl;
+
+ cout << endl << "Задание №2:" << endl;
+ int a = 127;
+ int order = sizeof(int) * 8;
+ int mask = 1 << order - 1;
+ cout << "\n";
+ for (int i = 0; i < order; i++) {
+  cout << ((a & mask) ? 1 : 0);
+  a = a << 1;
+  if (i == 0 or i == 7 or i ==15 or i == 23) {
+   cout << ' ';
+  }
+ }
+
+ cout << endl << endl << "Задание №3:" << endl;
+
+ union {
+  int integerA;
+  float floatB = 3.14;
+ };
+ cout << '\n';
+
+ for (int i = 0; i < order; i++) {
+  cout << ((integerA & mask) ? 1 : 0);
+  integerA = integerA << 1;
+  if (i == 0 or i == 7 or i ==15 or i == 23) {
+   cout << ' ';
+  }
+ }
+ mask = 1 << 30;
+ cout << mask;
+}
